@@ -8,6 +8,8 @@ document.addEventListener ('DOMContentLoaded', function (){
 	divMain.addEventListener('click', function (event) {fHandleEnter(event, this);}, true);
 	divMain.addEventListener('click', function (event) {fHandleExit(event, this);}, true);
 
+	fProcessForm();
+
 });
 
 function fHandleEnter(e){
@@ -16,4 +18,14 @@ function fHandleEnter(e){
 
 function fHandleExit(e){
 	e.target.style.backgroundColor = 'white';	
-}
+};
+
+function fProcessForm(){
+
+	var strQueryString = location.search;
+	strQueryString = decodeURIComponent(strQueryString);
+	strQueryString = strQueryString.replace(/^[^=]*=/, '');
+
+	alert ('String = ' + strQueryString);
+	
+};

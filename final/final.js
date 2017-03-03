@@ -28,4 +28,12 @@ function fProcessForm(){
 
 	alert ('Test: ' + strQueryString);
 	
+	var login = strQueryString;
+	
+	if (strQueryString.length>0) {
+		document.getElementById(divMain).style.display = 'none';
+ 	} else if (strQueryString.length==0) {
+     		document.getElementById(divMain).style.display = 'none';
+		document.getElementById(divReg).style.display = '';
+      };
 };

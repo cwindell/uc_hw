@@ -26,6 +26,6 @@ function fProcessForm(){
 	strQueryString = decodeURIComponent(strQueryString);
 	strQueryString = strQueryString.replace(/^[^=]*=/, '');
 
-	alert ('Test = ' + strQueryString);
+	alert ('Test: ' + strQueryString);
 	
 };

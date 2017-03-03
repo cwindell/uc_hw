@@ -6,14 +6,14 @@ document.addEventListener ('DOMContentLoaded', function (){
 	var divMain = document.getElementById('divMain');
 	
 	divMain.addEventListener('click', function (event) {fHandleEnter(event, this);}, true);
-	divMain.addEventListener('mouseout', function (event) {fHandleExit(event, this);}, true);
+	divMain.addEventListener('click', function (event) {fHandleExit(event, this);}, true);
 
 });
 
 function fHandleEnter(e){
-	e.target.style.backgroundColor = "yellow";
+	e.target.style.backgroundColor = 'yellow';
 };
 
 function fHandleExit(e){
-	e.target.style.backgroundColor = "white";	
+	e.target.style.backgroundColor = 'white';	
 }

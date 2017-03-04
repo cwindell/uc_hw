@@ -12,28 +12,32 @@ document.addEventListener ('DOMContentLoaded', function (){
 
 });
 
+//I think this function works well. Input box turns yellow when you click in it.
 function fHandleEnter(e){
 	e.target.style.backgroundColor = 'yellow';
 };
 
+//There is something wrong with this function. I'm not sure if is the type "mouseout" on line 9, "target" on line 22, or the color "white"
 function fHandleExit(e){
 	e.target.style.backgroundColor = 'white';	
 };
 
+//None of this function is working.
 function fProcessForm(){
 
 	var strQueryString = location.search;
 	strQueryString = decodeURIComponent(strQueryString);
-	strQueryString = strQueryString.replace(/^[^=]*=/, '');
+	strQueryString = strQueryString.replace(/^.*?\=/, '');
 
 	alert ('Test: ' + strQueryString);
 	
-	var login = strQueryString;
-	
 	if (strQueryString.length>0) {
+		var login = strQueryString;
+		document.getElementById(divReg).innerHTML = 'Thank you, {login}, you are now registered';
 		document.getElementById(divMain).style.display = 'none';
- 	} else if (strQueryString.length==0) {
-     		document.getElementById(divMain).style.display = 'none';
-		document.getElementById(divReg).style.display = '';
+		$('divRegistered').fadeIn(1000);
+ 	} else if (strQueryString.length===0) {
+     		document.getElementById(divReg).style.display = 'none';
+		document.getElementById(divMain).style.display = '';
       };
 };

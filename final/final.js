@@ -31,8 +31,9 @@ function fProcessForm(){
 
 	alert ('Test: ' + strQueryString);
 	
+//Not sure how you are supposed to find the name entered if you've replaced everything up to the equal sign with nothing
 	if (strQueryString.length>0) {
-		var login = strQueryString;
+		var login = strQueryString.replace(/^.*?\=/, '');
 		document.getElementById(divReg).innerHTML = 'Thank you, {login}, you are now registered';
 		document.getElementById(divMain).style.display = 'none';
 		$('divRegistered').fadeIn(1000);

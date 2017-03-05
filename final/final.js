@@ -5,8 +5,8 @@ document.addEventListener ('DOMContentLoaded', function (){
 	var divReg = document.getElementById('divRegistered');
 	var divMain = document.getElementById('divMain');
 	
-	divMain.addEventListener('click', function (event) {fHandleEnter(event, this);}, true);
-	divMain.addEventListener('mouseout', function (event) {fHandleExit(event, this);}, true);
+	divMain.addEventListener('focus', function (event) {fHandleEnter(event, this);}, true);
+	divMain.addEventListener('blur', function (event) {fHandleExit(event, this);}, true);
 
 	fProcessForm();
 
@@ -19,7 +19,7 @@ function fHandleEnter(e){
 
 //There is something wrong with this function. I'm not sure if is the type "mouseout" on line 9, "target" on line 22, or the color "white"
 function fHandleExit(e){
-	e.target.style.backgroundColor = 'white';	
+	e.target.style.backgroundColor = '';	
 };
 
 //None of this function is working.

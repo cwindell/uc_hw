@@ -13,7 +13,14 @@ document.addEventListener ('DOMContentLoaded', function (){
 
 	fProcessForm();
 	
-	var inputElements = document.querySelectorAll('#txtLogin, #txtPassword, #txtConfirmPassword, #txtEmail, #txtConfirmEmail');
+	var inputElements = document.querySelectorAll(input.frmRegister[type='text'], [type ='password']);
+	var spanElements = document.querySelectorAll('span');
+	
+	for (var i = 0; i < inputElements.length; i++){
+	alert ("Element Id = " + inputElements[i]);
+	}
+	
+	inputElements[i].addEventListener(‘blur’,function(){fCompareInput(arguments);});
 
 });
 
@@ -31,7 +38,7 @@ function fProcessForm(){
 	strQueryString = decodeURIComponent(strQueryString);
 	strQueryString = strQueryString.replace(/^.*?\=/, '');
 
-	alert ("username = " + strQueryString)
+	alert ("username = " + strQueryString);
 
 	var btn = document.getElementById('btnRegister');
 	btn.onclick = fRegister;
@@ -39,7 +46,7 @@ function fProcessForm(){
 	function fRegister(){
 		var login = strQueryString;	
 		if (strQueryString.length>0) {
-			$('#divReg').fadeIn(1000);
+			$('#divRegistered').fadeIn(1000);
 			divReg.innerHTML = 'Thank you, ' + login + ', you are now registered';
 			divMain.style.display = 'none';		
 
@@ -47,6 +54,19 @@ function fProcessForm(){
      			divReg.style.display = 'none';
 			divMain.style.display = '';
       		};
+	};
+};
+
+function fCompareInput(value1, value2, display){
+	if ((value1 | value2).length==0){
+		divReg.innerHTML = '';	
+		divReg.style.display = '';	
+	} else if (value1 === value2){
+		divReg.innerHTML = 'Entries match';
+		backgroundColor = 'green';
+	} else if {
+		divReg.innerHTML = 'Entries do not match';
+		backgroundColor = 'red';
 	};
 }
 

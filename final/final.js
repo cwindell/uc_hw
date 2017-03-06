@@ -39,13 +39,13 @@ function fProcessForm(){
 	function fRegister(){
 		var login = strQueryString;	
 		if (strQueryString.length>0) {
-			$('divReg').fadeIn(1000);
-			document.getElementById('divReg').innerHTML = 'Thank you, ' + login + ', you are now registered';
-			document.getElementById('divMain').style.display = 'none';		
+			$('#divReg').fadeIn(1000);
+			divReg.innerHTML = 'Thank you, ' + login + ', you are now registered';
+			divMain.style.display = 'none';		
 
 		} else if (strQueryString.length===0) {
-     			document.getElementById('divReg').style.display = 'none';
-			document.getElementById('divMain').style.display = '';
+     			divReg.style.display = 'none';
+			divMain.style.display = '';
       		};
 	};
 }

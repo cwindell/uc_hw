@@ -1,0 +1,11 @@
+pre{
+	height: 25px;
+	width: 250px;
+	background-color: silver;
+}
+
+.user_input{
+	margin: 5px;
+	border: 1px solid black;
+
+}

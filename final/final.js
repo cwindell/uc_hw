@@ -12,6 +12,8 @@ document.addEventListener ('DOMContentLoaded', function (){
 	divMain.addEventListener('blur', function (event) {fHandleExit(event, this);}, true);
 
 	fProcessForm();
+	
+	var inputElements = document.querySelectorAll('#txtLogin, #txtPassword, #txtConfirmPassword, #txtEmail, #txtConfirmEmail');
 
 });
 
@@ -28,17 +30,27 @@ function fProcessForm(){
 	var strQueryString = location.search;
 	strQueryString = decodeURIComponent(strQueryString);
 	strQueryString = strQueryString.replace(/^.*?\=/, '');
-	
-	if (strQueryString.length>0) {
-		var login = strQueryString(/[^=]*$/);
-		document.getElementById(divReg).innerHTML = 'Thank you, ' + login + ', you are now registered';
-		document.getElementById(divMain).style.display = 'none';
-		$('divRegistered').fadeIn(1000);
- 	} else if (strQueryString.length===0) {
-     		document.getElementById(divReg).style.display = 'none';
-		document.getElementById(divMain).style.display = '';
-      };
-};
 
+	alert ("username = " + strQueryString)
+
+	var btn = document.getElementById('btnRegister');
+	btn.onclick = fRegister;
+
+	function fRegister(){
+		var login = strQueryString;	
+		if (strQueryString.length>0) {
+			$('divReg').fadeIn(1000);
+			document.getElementById('divReg').innerHTML = 'Thank you, ' + login + ', you are now registered';
+			document.getElementById('divMain').style.display = 'none';		
+
+		} else if (strQueryString.length===0) {
+     			document.getElementById('divReg').style.display = 'none';
+			document.getElementById('divMain').style.display = '';
+      		};
+	};
+}
+
+
+//     Use regexr.com to test regular expressions
 //     /[^=]*$/   selects string after =
 //     /^.*?\=/   selects string before =

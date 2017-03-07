@@ -17,16 +17,19 @@ document.addEventListener ('DOMContentLoaded', function() {
 	var spanElements = document.querySelectorAll('span');
 
 	console.log(inputElements);
-	console.log(inputElements[i]);
 	console.log(spanElements);
 	
-	for (var i = 0; i < inputElements.length; i++) {
-	alert ('Array Element ' + i + ' = Element Id ' + inputElements[i]);
-	}
+	// for (var i = 0; i < inputElements.length; i++) {
+	// alert ('Array Element ' + i + ' = Element Id ' + inputElements[i]);
+	// }
 
-	// document.inputElements[i].addEventListener('blur',function(){ 
-	// 	fCompareInput(arguments);
-	// });
+	document.inputElements[2].addEventListener('blur',function() { 
+		fCompareInput(inputElements[2].value, spanElements[2]);
+	});
+
+	document.inputElements[4].addEventListener('blur',function() { 
+		fCompareInput(inputElements[4].value, spanElements[4]);
+	});
 
 });
 
@@ -57,11 +60,11 @@ function fProcessForm() {
   	};
 };
 
-function fCompareInput(value1, value2, display) {
-	if ((value1 | value2).length == 0){
+function fCompareInput(inputElements.value1, inputElements.value2, display) {
+	if ((inputElements[1] | inputElements[2] | inputElements[3] | inputElements[4]).length == 0){
 		divReg.innerHTML = '';	
 		divReg.style.display = '';	
-	} else if (value1 === value2) {
+	} else if ((inputElements[1] === inputElements[2]) && (inputElements[3] === inputElements[4])) {
 		divReg.innerHTML = 'Entries match';
 		backgroundColor = 'green';
 	} else {
@@ -69,8 +72,3 @@ function fCompareInput(value1, value2, display) {
 		backgroundColor = 'red';
 	};
 }
-
-
-//     Use regexr.com to test regular expressions
-//     /[^=]*$/   selects string after =
-//     /^.*?\=/   selects string before =

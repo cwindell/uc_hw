@@ -1,4 +1,4 @@
-#divRegistered{
+#divRegistered {
 	height: 100px;
 	width: 600 px;
 	background-color: tan;
@@ -6,10 +6,12 @@
 	font-size: 20px;
 	display: none;
 }
-tr{
+
+tr {
 	height: 40px;
 }
-.container{
+
+.container {
 	background-color: #222;
 	color: #fff;
 	margin: 20px auto;
@@ -18,7 +20,8 @@ tr{
 	position: relative;
 	width: 600px;
 }
-form{
+
+form {
 	background-color: #555;
 	display: block;
 	padding: 15px;

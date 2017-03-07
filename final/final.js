@@ -3,7 +3,7 @@
 var divReg;
 var divMain;
     
-document.addEventListener ('DOMContentLoaded', function (){
+document.addEventListener ('DOMContentLoaded', function() {
 
 	divReg = document.getElementById('divRegistered');
 	divMain = document.getElementById('divMain');
@@ -13,14 +13,17 @@ document.addEventListener ('DOMContentLoaded', function (){
 
 	fProcessForm();
 	
-	var inputElements = document.querySelectorAll(input.frmRegister[type='text'], [type ='password']);
+	var inputElements = document.querySelectorAll('#frmRegister input[type="text"], #frmRegister input[type="password"]');
 	var spanElements = document.querySelectorAll('span');
+
+	console.log(inputElements);
+	console.log(spanElements);
 	
 	for (var i = 0; i < inputElements.length; i++){
-		alert ('Element Id = ' + inputElements[i]);
+		// alert ('Element Id = ' + inputElements[i]);
 	}
-	
-	inputElements[i].addEventListener(‘blur’,function(){fCompareInput(arguments);});
+	console.log (i);
+	// inputElements[i].addEventListener('blur',function(){fCompareInput(arguments);});
 
 });
 
@@ -32,39 +35,33 @@ function fHandleExit(e){
 	e.target.style.backgroundColor = '';	
 };
 
-function fProcessForm(){
+function fProcessForm() {
 
 	var strQueryString = location.search;
 	strQueryString = decodeURIComponent(strQueryString);
-	strQueryString = strQueryString.replace(/^.*?\=/, '');
+	var login = strQueryString.replace(/^.*?\=/, '');
 
-	alert ('username = ' + strQueryString);
+	// alert ('username = ' + strQueryString);
+	console.log('username = ' + login);
+	
+	if (login.length > 0) {
+		$('#divRegistered').fadeIn(1000);
+		divReg.innerHTML = 'Thank you, ' + login + ', you are now registered';
+		divMain.style.display = 'none';		
 
-	var btn = document.getElementById('btnRegister');
-	btn.onclick = fRegister;
-
-	function fRegister(){
-		var login = strQueryString;	
-		if (strQueryString.length>0) {
-			$('#divRegistered').fadeIn(1000);
-			divReg.innerHTML = 'Thank you, ' + login + ', you are now registered';
-			divMain.style.display = 'none';		
-
-		} else if (strQueryString.length===0) {
-     			divReg.style.display = 'none';
-			divMain.style.display = '';
-      		};
-	};
+	} else if (login.length === 0) {
+ 		divReg.style.display = 'none';
+  	};
 };
 
 function fCompareInput(value1, value2, display){
-	if ((value1 | value2).length==0){
+	if ((value1 | value2).length == 0){
 		divReg.innerHTML = '';	
 		divReg.style.display = '';	
 	} else if (value1 === value2){
 		divReg.innerHTML = 'Entries match';
 		backgroundColor = 'green';
-	} else if {
+	} else {
 		divReg.innerHTML = 'Entries do not match';
 		backgroundColor = 'red';
 	};

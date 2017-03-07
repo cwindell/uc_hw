@@ -17,21 +17,24 @@ document.addEventListener ('DOMContentLoaded', function() {
 	var spanElements = document.querySelectorAll('span');
 
 	console.log(inputElements);
+	console.log(inputElements[i]);
 	console.log(spanElements);
 	
-	for (var i = 0; i < inputElements.length; i++){
-		// alert ('Element Id = ' + inputElements[i]);
+	for (var i = 0; i < inputElements.length; i++) {
+	alert ('Array Element ' + i + ' = Element Id ' + inputElements[i]);
 	}
-	console.log (i);
-	// inputElements[i].addEventListener('blur',function(){fCompareInput(arguments);});
+
+	// document.inputElements[i].addEventListener('blur',function(){ 
+	// 	fCompareInput(arguments);
+	// });
 
 });
 
-function fHandleEnter(e){
+function fHandleEnter(e) {
 	e.target.style.backgroundColor = 'yellow';
 };
 
-function fHandleExit(e){
+function fHandleExit(e) {
 	e.target.style.backgroundColor = '';	
 };
 
@@ -41,8 +44,7 @@ function fProcessForm() {
 	strQueryString = decodeURIComponent(strQueryString);
 	var login = strQueryString.replace(/^.*?\=/, '');
 
-	// alert ('username = ' + strQueryString);
-	console.log('username = ' + login);
+	console.log(login);
 	
 	if (login.length > 0) {
 		$('#divRegistered').fadeIn(1000);
@@ -51,14 +53,15 @@ function fProcessForm() {
 
 	} else if (login.length === 0) {
  		divReg.style.display = 'none';
+ 		divMain.style.display = 'block';	
   	};
 };
 
-function fCompareInput(value1, value2, display){
+function fCompareInput(value1, value2, display) {
 	if ((value1 | value2).length == 0){
 		divReg.innerHTML = '';	
 		divReg.style.display = '';	
-	} else if (value1 === value2){
+	} else if (value1 === value2) {
 		divReg.innerHTML = 'Entries match';
 		backgroundColor = 'green';
 	} else {

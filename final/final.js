@@ -2,25 +2,25 @@
 
 var divReg;
 var divMain;
-    
+
 document.addEventListener ('DOMContentLoaded', function (){
 
 	divReg = document.getElementById('divRegistered');
 	divMain = document.getElementById('divMain');
-	
+
 	divMain.addEventListener('focus', function (event) {fHandleEnter(event, this);}, true);
 	divMain.addEventListener('blur', function (event) {fHandleExit(event, this);}, true);
 
 	fProcessForm();
-	
+
 	var inputElements = document.querySelectorAll(input.frmRegister[type='text'], [type ='password']);
 	var spanElements = document.querySelectorAll('span');
-	
+
 	for (var i = 0; i < inputElements.length; i++){
 		alert ('Element Id = ' + inputElements[i]);
 	}
-	
-	inputElements[i].addEventListener(‘blur’,function(){fCompareInput(arguments);});
+
+	inputElements[i].addEventListener('blur', function(){fCompareInput(arguments);});
 
 });
 
@@ -29,7 +29,7 @@ function fHandleEnter(e){
 };
 
 function fHandleExit(e){
-	e.target.style.backgroundColor = '';	
+	e.target.style.backgroundColor = '';
 };
 
 function fProcessForm(){
@@ -44,11 +44,11 @@ function fProcessForm(){
 	btn.onclick = fRegister;
 
 	function fRegister(){
-		var login = strQueryString;	
+		var login = strQueryString;
 		if (strQueryString.length>0) {
 			$('#divRegistered').fadeIn(1000);
 			divReg.innerHTML = 'Thank you, ' + login + ', you are now registered';
-			divMain.style.display = 'none';		
+			divMain.style.display = 'none';
 
 		} else if (strQueryString.length===0) {
      			divReg.style.display = 'none';
@@ -59,8 +59,8 @@ function fProcessForm(){
 
 function fCompareInput(value1, value2, display){
 	if ((value1 | value2).length==0){
-		divReg.innerHTML = '';	
-		divReg.style.display = '';	
+		divReg.innerHTML = '';
+		divReg.style.display = '';
 	} else if (value1 === value2){
 		divReg.innerHTML = 'Entries match';
 		backgroundColor = 'green';

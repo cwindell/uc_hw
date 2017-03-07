@@ -17,7 +17,7 @@ document.addEventListener ('DOMContentLoaded', function (){
 	var spanElements = document.querySelectorAll('span');
 	
 	for (var i = 0; i < inputElements.length; i++){
-	alert ("Element Id = " + inputElements[i]);
+		alert ('Element Id = ' + inputElements[i]);
 	}
 	
 	inputElements[i].addEventListener(‘blur’,function(){fCompareInput(arguments);});
@@ -38,7 +38,7 @@ function fProcessForm(){
 	strQueryString = decodeURIComponent(strQueryString);
 	strQueryString = strQueryString.replace(/^.*?\=/, '');
 
-	alert ("username = " + strQueryString);
+	alert ('username = ' + strQueryString);
 
 	var btn = document.getElementById('btnRegister');
 	btn.onclick = fRegister;

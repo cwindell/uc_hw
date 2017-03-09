@@ -23,15 +23,21 @@ document.addEventListener ('DOMContentLoaded', function() {
 	// alert ('Array Element ' + i + ' = Element Id: ' + inputElements[i].id);
 	// }
 
-	fCompareInput(value1,value2);
-
-	inputElements[1].addEventListener('blur',function() { 
-		fCompareInput(inputElements[1], inputElements[2], spanElements[2]);
+	inputElements[2].addEventListener('blur',function() { 
+		fCompareInput(inputElements[1].value, inputElements[2].value, spanElements[2]);
 	});
 
-	inputElements[3].addEventListener('blur',function() { 
+	inputElements[4].addEventListener('blur',function() { 
 		fCompareInput(inputElements[3].value, inputElements[4].value, spanElements[4]);
 	});
+
+	// inputElements[2].addEventListener('blur',function() { 
+	// 	fCompareInput('#txtPassword'.value, '#txtConfirmPassword'.value, '#spnPasswordCompare');
+	// });
+
+	// inputElements[4].addEventListener('blur',function() { 
+	// 	fCompareInput('#txtEmail'.value, '#txtConfirmEmail'.value, '#spnEmailCompare');
+	// });
 
 });
 
@@ -69,11 +75,12 @@ function fCompareInput(value1, value2, display) {
 		divReg.style.display = '';	
 	} else if (value1 === value2) {
 		divReg.innerHTML = 'Entries match';
-		divReg.style.backgroundColor = 'green';
+		divReg.style.display.backgroundColor = 'green';
 	} else {
 		divReg.innerHTML = 'Entries do not match';
-		divReg.style.backgroundColor = 'red';
+		divReg.style.display.backgroundColor = 'red';
 	};
+
 }
 
 

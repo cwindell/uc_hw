@@ -16,12 +16,13 @@ document.addEventListener ('DOMContentLoaded', function() {
 	var inputElements = document.querySelectorAll('#frmRegister input[type="text"], #frmRegister input[type="password"]');
 	var spanElements = document.querySelectorAll('span');
 
-	console.log(inputElements);
-	console.log(spanElements);
+	// console.log(inputElements);
+	// console.log(spanElements);
 	
 	// for (var i = 0; i < inputElements.length; i++) {
 	// alert ('Array Element ' + i + ' = Element Id: ' + inputElements[i].id);
 	// }
+
 
 	inputElements[2].addEventListener('blur',function() { 
 		fCompareInput(inputElements[1].value, inputElements[2].value, spanElements[2]);
@@ -31,7 +32,42 @@ document.addEventListener ('DOMContentLoaded', function() {
 		fCompareInput(inputElements[3].value, inputElements[4].value, spanElements[4]);
 	});
 
+	inputElements[0].addEventListener('blur',function() { 
+		fValidateLogin(inputElements[0].value, spanElements[0]);
+	});
+
+	inputElements[1].addEventListener('blur',function() { 
+		fValidatePassword(inputElements[1].value, spanElements[1]);
+	});
+
+	inputElements[3].addEventListener('blur',function() { 
+		fValidateEmail(inputElements[3].value, spanElements[3]);
+	});
+
+
 });
+
+function fValidateLogin(value, display) {
+	console.log('login', value);
+	if (value.length <= 10 && value.length >= 5) {
+		display.innerHTML = 'Login is correct length';	
+		display.style.backgroundColor = 'green';
+		console.log('correct')
+	} else {
+		display.innerHTML = 'Please enter a login between 5-10 characters';
+		display.style.backgroundColor = 'red';
+		console.log('incorrect')
+	};
+
+};
+
+function fValidatePassword(value, display) {
+	console.log('password', value);
+};
+
+function fValidateEmail(value, display) {
+	console.log('email', value);
+};
 
 function fHandleEnter(e) {
 	e.target.style.backgroundColor = 'yellow';
@@ -58,21 +94,20 @@ function fProcessForm() {
  		divReg.style.display = 'none';
  		divMain.style.display = 'block';	
   	};
+
 };
 
 function fCompareInput(value1, value2, display) {
-
-	if ((value1.length | value2.length) == 0){
-		divReg.innerHTML = '';	
-		divReg.style.display = '';	
+	if ((value1.length === 0) | (value2.length === 0)){
+		display.innerHTML = '';	
+		display.style = '';	
 	} else if (value1 === value2) {
-		divReg.innerHTML = 'Entries match';
-		divReg.style.display.backgroundColor = 'green';
+		display.innerHTML = 'Entries match';
+		display.style.backgroundColor = 'green';
 	} else {
-		divReg.innerHTML = 'Entries do not match';
-		divReg.style.display.backgroundColor = 'red';
+		display.innerHTML = 'Entries do not match';
+		display.style.backgroundColor = 'red';
 	};
-
 }
 
 

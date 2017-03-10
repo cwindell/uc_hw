@@ -31,14 +31,6 @@ document.addEventListener ('DOMContentLoaded', function() {
 		fCompareInput(inputElements[3].value, inputElements[4].value, spanElements[4]);
 	});
 
-	// inputElements[2].addEventListener('blur',function() { 
-	// 	fCompareInput('#txtPassword'.value, '#txtConfirmPassword'.value, '#spnPasswordCompare');
-	// });
-
-	// inputElements[4].addEventListener('blur',function() { 
-	// 	fCompareInput('#txtEmail'.value, '#txtConfirmEmail'.value, '#spnEmailCompare');
-	// });
-
 });
 
 function fHandleEnter(e) {

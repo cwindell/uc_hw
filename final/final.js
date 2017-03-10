@@ -23,7 +23,6 @@ document.addEventListener ('DOMContentLoaded', function() {
 	// alert ('Array Element ' + i + ' = Element Id: ' + inputElements[i].id);
 	// }
 
-
 	inputElements[2].addEventListener('blur',function() { 
 		fCompareInput(inputElements[1].value, inputElements[2].value, spanElements[2]);
 	});
@@ -44,22 +43,22 @@ document.addEventListener ('DOMContentLoaded', function() {
 		fValidateEmail(inputElements[3].value, spanElements[3]);
 	});
 
-
 });
 
 function fValidateLogin(value, display) {
 	console.log('login', value);
-	if (value.length <= 10 && value.length >= 5) {
+	if (value.length <= 10 && value.length >= 5){
 		display.innerHTML = 'Login is correct length';	
 		display.style.backgroundColor = 'green';
-		console.log('correct')
+		console.log('correct length')
 	} else {
 		display.innerHTML = 'Please enter a login between 5-10 characters';
 		display.style.backgroundColor = 'red';
-		console.log('incorrect')
+		console.log('incorrect length')
 	};
-
 };
+
+// if (value = /^([\w]){5,10}$/)
 
 function fValidatePassword(value, display) {
 	console.log('password', value);
@@ -78,7 +77,6 @@ function fHandleExit(e) {
 };
 
 function fProcessForm() {
-
 	var strQueryString = location.search;
 	strQueryString = decodeURIComponent(strQueryString);
 	var login = strQueryString.replace(/^.*?\=/, '');
@@ -94,7 +92,6 @@ function fProcessForm() {
  		divReg.style.display = 'none';
  		divMain.style.display = 'block';	
   	};
-
 };
 
 function fCompareInput(value1, value2, display) {

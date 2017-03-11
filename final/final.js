@@ -16,49 +16,65 @@ document.addEventListener ('DOMContentLoaded', function() {
 	var inputElements = document.querySelectorAll('#frmRegister input[type="text"], #frmRegister input[type="password"]');
 	var spanElements = document.querySelectorAll('span');
 
-	// console.log(inputElements);
-	// console.log(spanElements);
+	console.log(inputElements);
+	console.log(spanElements);
 	
 	// for (var i = 0; i < inputElements.length; i++) {
 	// alert ('Array Element ' + i + ' = Element Id: ' + inputElements[i].id);
 	// }
 
-	inputElements[2].addEventListener('blur',function() { 
-		fCompareInput(inputElements[1].value, inputElements[2].value, spanElements[2]);
-	});
-
-	inputElements[4].addEventListener('blur',function() { 
-		fCompareInput(inputElements[3].value, inputElements[4].value, spanElements[4]);
+	inputElements[0].addEventListener('blur',function() { 
+		fValidateLoginCharacters(inputElements[0].value, spanElements[1]);
 	});
 
 	inputElements[0].addEventListener('blur',function() { 
-		fValidateLogin(inputElements[0].value, spanElements[0]);
+		fValidateLoginLength(inputElements[0].value, spanElements[0]);
 	});
 
 	inputElements[1].addEventListener('blur',function() { 
-		fValidatePassword(inputElements[1].value, spanElements[1]);
+		fValidatePassword(inputElements[1].value, spanElements[2]);
+	});
+
+	inputElements[2].addEventListener('blur',function() { 
+		fCompareInput(inputElements[1].value, inputElements[2].value, spanElements[3]);
 	});
 
 	inputElements[3].addEventListener('blur',function() { 
-		fValidateEmail(inputElements[3].value, spanElements[3]);
+		fValidateEmail(inputElements[3].value, spanElements[4]);
+	});
+
+	inputElements[4].addEventListener('blur',function() { 
+		fCompareInput(inputElements[3].value, inputElements[4].value, spanElements[5]);
 	});
 
 });
 
-function fValidateLogin(value, display) {
-	console.log('login', value);
+function fValidateLoginLength(value, display) {
+	console.log('login length', value);
 	if (value.length <= 10 && value.length >= 5){
 		display.innerHTML = 'Login is correct length';	
 		display.style.backgroundColor = 'green';
 		console.log('correct length')
 	} else {
-		display.innerHTML = 'Please enter a login between 5-10 characters';
+		display.innerHTML = 'Login must be between 5-10 characters';
 		display.style.backgroundColor = 'red';
 		console.log('incorrect length')
 	};
 };
 
-// if (value = /^([\w]){5,10}$/)
+function fValidateLoginCharacters(value3, display) {
+	console.log('characters', value3);
+	var alphanumeric = /^\w+$/;
+	if (alphanumeric.test(value3)){
+		display.innerHTML = 'Login has valid characters';	
+		display.style.backgroundColor = 'green';
+		console.log('correct characters')
+	} else {
+		display.innerHTML = 'Login must contain only letters, numbers and underscores';
+		display.style.backgroundColor = 'red';
+		console.log('incorrect characters')
+	};
+};
 
 function fValidatePassword(value, display) {
 	console.log('password', value);

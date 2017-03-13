@@ -24,11 +24,11 @@ document.addEventListener ('DOMContentLoaded', function() {
 	// }
 
 	inputElements[0].addEventListener('blur',function() { 
-		fValidateLoginCharacters(inputElements[0].value, spanElements[1]);
-	});
-
-	inputElements[0].addEventListener('blur',function() { 
 		fValidateLoginLength(inputElements[0].value, spanElements[0]);
+	});
+	
+	inputElements[0].addEventListener('blur',function() { 
+		fValidateLoginCharacters(inputElements[0].value, spanElements[1]);
 	});
 
 	inputElements[1].addEventListener('blur',function() { 
@@ -62,10 +62,10 @@ function fValidateLoginLength(value, display) {
 	};
 };
 
-function fValidateLoginCharacters(value3, display) {
-	console.log('characters', value3);
+function fValidateLoginCharacters(characters, display) {
+	console.log('characters', characters);
 	var alphanumeric = /^\w+$/;
-	if (alphanumeric.test(value3)){
+	if (alphanumeric.test(characters)){
 		display.innerHTML = 'Login has valid characters';	
 		display.style.backgroundColor = 'green';
 		console.log('correct characters')

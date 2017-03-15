@@ -18,7 +18,16 @@ tr {
 	overflow: hidden;
 	padding: 20px;
 	position: relative;
-	width: 600px;
+	/*increase width to allow for fValidateLoginCharacters error message*/
+	width: 675px;
+}
+
+/*add class container for two login error messages*/
+.errorMessagesContainer {
+	/*hide element when page loads*/
+	display: none;
+	/*add float to move error messages to right of input*/
+  	float: right;
 }
 
 form {

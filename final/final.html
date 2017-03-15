@@ -14,11 +14,10 @@
 			<table>
 				<tr>
 					<td>Login</td>
-					<td><input type="text" name="Login" id="txtLogin"/>&nbsp;<span id="spnLoginLength"></span></td>
-				</tr>
-				<tr>
-					<td height = "20"></td>
-					<td><span id="spnLoginCharacters"></span></td>
+
+					<!--add div to hold two login error messages, change name of span spnLogin to spnLoginLength, add span spnLoginCharacters -->
+					<td><input type="text" name="Login" id="txtLogin"/>&nbsp;<div class="errorMessagesContainer" id="divLoginErrorContainer"><span id="spnLoginLength"></span><br><span id="spnLoginCharacters"></span></div></td>
+
 				</tr>
 				<tr>
 					<td>Password</td>
